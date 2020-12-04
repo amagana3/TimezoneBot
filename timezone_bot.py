@@ -1,3 +1,4 @@
+# Author: Andrew Magana
 # timezone_bot.py
 import os
 
