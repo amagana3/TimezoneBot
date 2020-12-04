@@ -53,7 +53,6 @@ async def on_message(message):
                 return
 
         # Grab the params...
-        trigger = message.content.split()[0]
         time_entered = message.content.split()[1]
         time_zone_source = message.content.split()[2].upper()
 
