@@ -6,3 +6,6 @@ env/
 
 # jetbrains
 .idea/
+
+# key_pair for EC2
+timezone_bot.pem
