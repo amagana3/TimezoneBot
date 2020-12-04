@@ -42,13 +42,19 @@ async def on_message(message):
     if '!timezones' in message.content and len(message.content.split()[0]) == 10:
 
         if len(message.content.split()) > 3:
-            await message.channel.send(
-                "Error! Too many parameters. Only three should be used: !timezones {time} {timezone}")
-            return
+            # Edge case - They separated the time + am/pm.
+            if "am" in message.content.split()[2] or "pm" in message.content.split()[2]:
+                await message.channel.send("Error! You need to combine the am/pm to the time like: 4pm or 4:30pm")
+                return
+            else:
+                # Edge case - too many params.
+                await message.channel.send(
+                    "Error! Too many parameters. Only three should be used: !timezones {time} {timezone}")
+                return
 
         # Grab the params...
         trigger = message.content.split()[0]
-        time_entered = message.content.split()[1].strip(" ")
+        time_entered = message.content.split()[1]
 
         try:
             time_zone_source = message.content.split()[2].upper()
