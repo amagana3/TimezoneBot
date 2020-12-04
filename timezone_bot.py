@@ -51,7 +51,7 @@ async def on_message(message):
         time_entered = message.content.split()[1].strip(" ")
 
         try:
-            time_zone_source = message.content.split()[2]
+            time_zone_source = message.content.split()[2].upper()
         except IndexError:
             time_zone_source = None
             await message.channel.send(
