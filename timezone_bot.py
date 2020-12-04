@@ -55,13 +55,7 @@ async def on_message(message):
         # Grab the params...
         trigger = message.content.split()[0]
         time_entered = message.content.split()[1]
-
-        try:
-            time_zone_source = message.content.split()[2].upper()
-        except IndexError:
-            time_zone_source = None
-            await message.channel.send(
-                "Error! You forgot to enter the timezone! Format should be: !timezones {time} {timezone}")
+        time_zone_source = message.content.split()[2].upper()
 
         try:
             current_time = parser.parse(time_entered + " " + time_zone_source)
