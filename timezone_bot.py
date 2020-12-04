@@ -36,7 +36,7 @@ async def on_message(message):
 
     # Edge case
     if '!timezone' in message.content and len(message.content.split()[0]) != 10:
-        await message.channel.send("Error! You dropped an 's'. Should be !timezones.")
+        await message.channel.send("Error! You dropped an 's'. Should be `!timezones`.")
 
     # Make sure if it is !timezones, only 3 values exist in array, otherwise error.
     if '!timezones' in message.content and len(message.content.split()[0]) == 10:
@@ -49,7 +49,7 @@ async def on_message(message):
             else:
                 # Edge case - too many params.
                 await message.channel.send(
-                    "Error! Too many parameters. Only three should be used: !timezones {time} {timezone}")
+                    "Error! Too many parameters. Only three should be used: `!timezones {time} {timezone}`")
                 return
 
         # Grab the params...
